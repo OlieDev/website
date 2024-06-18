@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login PriceSnap </title>
+    <link rel="stylesheet" href="../STYLES/main.css"> 
+    <script src="../API/api.js" defer></script>
+    <script src="../Js/main.js" defer></script>
+   
+   
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="../../assets/img/PriceSnap-removebg-preview.png" width="100px" alt="logo">
+        </div>
+
+        <ul class="nav-bar">
+            <li><a href="../../index.html">Inicial</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+        </ul>
+    </nav>
+    <header>        
+        <div id="login" class="login-box">
+            <form  >
+                <img src="../../assets/img/PriceSnap-removebg-preview.png" width="125px" alt="logo">
+                <h1>Login</h1>
+                <span><p id="alertas"></p></span>
+                <div class=" textbox">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Usuário" id="loginnickname">
+                </div>
+                <div class="textbox">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Senha" id="loginpassword">
+                </div>
+              
+            </form>
+            <div class="btn">
+                <button onclick="login()" class="btn">Logar</button>
+                <a class="btn" href="cadastro.html">Cadastre-se</a>
+                <a onclick="recuperar()">Esqueceu senha?</a>
+
+            </div>
+            
+        </div>
+        <div id="recuperarEmail" class="login-box" style="display: none;" >
+			<form >
+				<img src="../../assets/img/PriceSnap-removebg-preview.png" width="125px" alt="logo">
+				<h1 style="margin-bottom: 50px;">Recuperar Senha</h1>
+				<div class=" textbox">
+					<i class="fas fa-user"></i>
+					<input style="margin-bottom: 50px; width: 350px;" type="text" placeholder="E-mail">
+					<a class="btn" href="Codigo.html">Redefinir Senha</a>
+			</form>
+		
+			
+		</div>
+      
+       
+
+         
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const loginInputs = document.querySelectorAll('#loginnickname, #loginpassword');
+    loginInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            document.getElementById('alertas').innerText = '';
+        });
+    });
+});
+    </script>
+   
+
+ 
+</body>
+
+</html>

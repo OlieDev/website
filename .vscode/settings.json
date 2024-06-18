@@ -1,0 +1,9 @@
+{
+	"[css]": {
+		"editor.defaultFormatter": "Jota0222.multi-formatter"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "Jota0222.multi-formatter"
+	},
+	"liveServer.settings.port": 5501
+}

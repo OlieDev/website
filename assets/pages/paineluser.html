@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel usuarios PriceSnap </title>
+    <script src="../API/apiUser.js" defer></script>
+    <link rel="stylesheet" href="../STYLES/userStyles.css">
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="../../assets/img/PriceSnap-removebg-preview.png" width="100px" alt="logo">
+        </div>
+        <ul>
+            <li><a href="../pages/perfil.html">Perfil</a></li>
+            <li><a href="#">Favoritos</a></li>
+
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="sidebar" id="side">
+                <div><button onclick="mostrarDados()">Seus dados</button></div>
+                <div><button onclick="mudarDados()" ">Mudar dados</button></div>
+                <div><button ">Botão</button></div>
+                <div><button ">Botão</button></div>
+                <div><button ">Botão</button></div>
+                <div><button ">Botão</button></div>
+                <div><button ">Botão</button></div>
+            </div>
+            <div class="content" id="content"></div>
+
+        </div>
+
+    </main>
+    <script>
+        async function paineluser() {
+            try {
+                const respostas = await fetch('http://localhost:3000/usuarios');
+                const datas = await respostas.json();
+
+                // Extrair o ID do usuário da URL atual
+                const urlParams = new URLSearchParams(window.location.search);
+                const userId = urlParams.get('id');
+
+                // Encontrar o usuário correspondente
+                const user = datas.find(user => user.id === userId);
+
+                if (user) {
+                    // Redirecionar para paineluser.html com o ID do usuário
+                    window.location.href = `paineluser.html?id=${user.id}`;
+                } else {
+                    alert('Usuário não encontrado!');
+                }
+
+            } catch (error) {
+                console.error('Erro ao validar login:', error);
+                alert('Houve um problema ao validar o login.');
+            }
+        }
+        
+
+        // Chame a função assim que a página principal for carregada
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

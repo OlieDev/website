@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastro PriceSnap </title>
+	<link rel="stylesheet" href="../STYLES/main.css">	
+	<script src="../API/api.js" defer></script>
+	
+
+
+</head>
+
+<body>
+	<nav class="nav-bar">
+		<div class="logo">
+			<img src="../../assets/img/PriceSnap-removebg-preview.png" width="100px" alt="logo">
+		</div>
+
+		<ul class="nav-bar">
+			<li><a href="../../index.html">Inicial</a></li>
+			<li><a href="#">Contato</a></li>
+
+		</ul>
+	</nav>
+
+	<header>
+
+		<div id="tela" class="login-box"  >
+			<data id="tela1""></data>
+			<form>
+				<img src="../../assets/img/PriceSnap-removebg-preview.png" width="125px" alt="logo">
+				<h1>Cadastro</h1>
+				<span id="alertcampos"></span>
+				<div class=" textbox">
+					<span id="alertnickname"></span>
+					<i class="fas fa-user"></i>
+					<input type="text" placeholder="Usuário" id="nick">
+				</div>
+				<div class="textbox">
+					<i class="fas fa-user"></i>
+					<span id="alertname"></span>
+					<input type="text" placeholder="Nome" id="name">
+				</div>				
+				<div class="textbox">
+					<i class="fas fa-user"></i>					
+					<input type="text" placeholder="Sobrenome" id="surname">
+				</div>				
+				<div class="textbox">
+					<i class="fas fa-user"></i>
+					<span id="alertemail"></span>
+					<input type="email" placeholder="email" id="email">
+				</div>
+				<div class="textbox">
+					<i class="fas fa-lock"></i>
+					<span id="alertpassword"></span>
+					<input type="password" placeholder="Senha" id="password">
+				</div>
+				<div class="textbox">
+					<i class="fas fa-lock"></i>
+					<span id="alerconfirmepass"></span>
+					<input type="password" placeholder="Confirme sua senha" id="vericarpass">
+				</div>
+				
+
+				
+			</form>
+			<div class="btn">
+				<a href="login.html">Ja tenho conta</a>
+				<button class="btn" onclick="proximo()" id="proximo">Proximo</button>
+			</div>
+		</div>
+
+
+
+
+
+	</header>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            document.getElementById('alertcampos').innerText = '';
+			document.getElementById('alertpassword').innerText = '';
+			document.getElementById('alertemail').innerText = '';
+			document.getElementById('alertnickname').innerText = '';
+			document.getElementById('alertname').innerText = '';
+			document.getElementById('alerconfirmepass').innerText = '';
+		
+			
+        });
+    });
+});
+
+	</script>
+
+
+</body>
+
+</html>

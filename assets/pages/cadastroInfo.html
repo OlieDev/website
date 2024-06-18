@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro PriceSnap</title>
+    <link rel="stylesheet" href="../STYLES/main.css">
+    <script src="../API/api.js" defer></script>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="../../assets/img/PriceSnap-removebg-preview.png" width="100px" alt="logo">
+        </div>
+        <ul class="nav-bar">
+            <li><a href="../../index.html">Inicial</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div id="tela" class="login-box" style="height: 125vh;">
+            <form id="updateForm">
+                <img src="../../assets/img/PriceSnap-removebg-preview.png" width="125px" alt="logo">
+                <h1>Cadastro</h1>
+                <div class="textbox1">
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" placeholder="12345-678" required style="padding-left: 5px;">
+                    <br><br>
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                    <br><br>
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" required>
+                    <br><br>
+                    <label for="rua">Rua:</label>
+                    <input type="text" id="rua" name="rua" required>
+                    <br><br>
+                    <label for="numero">Número:</label>
+                    <input type="number" id="numero" name="numero" class="input-number">
+                    <br><br>
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro">
+                    <br><br>
+                    <label for="complemento">Complemento:</label>
+                    <input type="text" id="complemento" name="complemento">
+                    <br><br>
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" maxlength="15" placeholder="(DDD) _____-____"
+                        oninput="formatarTelefone(this)" style="padding-left: 5px;">
+                    <br><br>
+                    <label for="sexo">Sexo:</label>
+                    <select id="sexo" name="sexo" required>
+                        <option value="">Selecione...</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                    <br><br>
+                    <label for="birthdate">Data de Nascimento:</label>
+                    <input type="date" id="birthdate" name="birthdate" required style="padding-left: 5px;">
+                    <br><br>
+                </div>
+                <div class="btn">
+                    <button type="button" onclick="atualizar()" class="btn" style="margin-bottom: 45px;">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+
+    
+</body>
+
+</html>

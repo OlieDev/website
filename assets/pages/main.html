@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriceSnap</title>
+    <link rel="stylesheet" href="../STYLES/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/0f974fef2c.js" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZxffH421RvADYiAFjsRMIy3Bu35_Zyms&callback=initMap"
+        async defer></script>
+
+    <script src="../API/apiMarket.js" defer></script>
+    <script src="../Js/main.js" defer></script>
+    <!-- <script src="../API/apiUser.js" defer></script> -->
+
+</head>
+
+<body>
+
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="../img/PriceSnap-removebg-preview.png" width="100px" alt="logo" onclick="paginaInicial()">
+        </div>
+
+        <ul class="nav-bar">
+            <li><a href="#">Contato</a></li>
+            <li><a onclick="paineluser()">Sua conta</a></li>
+
+        </ul>
+    </nav>
+
+    <div class="search">
+
+        <input type="text" placeholder="Pesquise um produto" id="pesquisa">
+        <i onclick="mostrarProdutos()" class="fas fa-search" aria-hidden="true"></i>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="sidebar" >
+                <h1 id="nomeshow" ></h1>
+                <div id="cupons"></div>
+               
+                <div id="product-info"></div>
+            </div>
+            <div class="content">
+                <div class="top-content" id="top-content">
+                    <h1>Encartes</h1>
+                   <div class="encartes" id="encartes">
+                    
+                    
+                   
+                   </div>
+                    
+        
+                    </div>
+                </div>
+                <div class="bottom-content">
+                    <div class="slider">
+                        <input type="radio" name="slide" id="slide1" checked>
+                        <input type="radio" name="slide" id="slide2">
+                        <input type="radio" name="slide" id="slide3">
+                        <input type="radio" name="slide" id="slide4">
+                        <input type="radio" name="slide" id="slide5">
+
+                        <div class="slides">
+                            <div class="slide" id="s1"><img src="https://fortatacadista.vteximg.com.br/arquivos/ids/309467/1240x340_baixe_o_app_cupom-regiao-TODAS.jpg?v=638538143949170000" alt="Slide 1"></div>
+                            <div class="slide" id="s2"><img src="https://fortatacadista.vteximg.com.br/arquivos/ids/309313/1240x340_bom_negocio_todo_dia-regiao-TODAS.jpg?v=638536173013900000" alt="Slide 2"></div>
+                            <div class="slide" id="s3"><img src="https://www.superkoch.com.br/media/wysiwyg/Banner_Home_-_Desktop_-_Ofertas_ClubK_5.jpg" alt="Slide 3"></div>
+                            <div class="slide" id="s4"><img src="https://www.superkoch.com.br/media/wysiwyg/Banner_Home_-_Desktop_-_13-06.jpg" alt="Slide 4"></div>
+                            <div class="slide" id="s5"><img src="../img/sideright.png" alt="Slide 5" ></div>
+                        </div>
+
+                        <div class="navigation">
+                            <label for="slide1" class="nav-dot" id="dot1"></label>
+                            <label for="slide2" class="nav-dot" id="dot2"></label>
+                            <label for="slide3" class="nav-dot" id="dot3"></label>
+                            <label for="slide4" class="nav-dot" id="dot4"></label>
+                            <label for="slide5" class="nav-dot" id="dot5"></label>
+                        </div>
+                    </div>
+                    <div id="maps"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        async function paineluser() {
+            try {
+                const respostas = await fetch('http://localhost:3000/usuarios');
+                const datas = await respostas.json();
+
+                // Extrair o ID do usuário da URL atual
+                const urlParams = new URLSearchParams(window.location.search);
+                const userId = urlParams.get('id');
+
+                // Encontrar o usuário correspondente
+                const user = datas.find(user => user.id === userId);
+
+                if (user) {
+                    // Redirecionar para paineluser.html com o ID do usuário
+                    window.location.href = `paineluser.html?id=${user.id}`;
+                } else {
+                    alert('Usuário não encontrado!');
+                }
+
+            } catch (error) {
+                console.error('Erro ao validar login:', error);
+                alert('Houve um problema ao validar o login.');
+            }
+        }
+
+        // Chame a função assim que a página principal for carregada
+
+    </script>
+
+</body>
+
+</html>
